@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - Campus Lost & Found Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔎 Lost & Found</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="report-lost.html">Report Lost</a></li>
+            <li><a href="report-found.html">Report Found</a></li>
+            <li><a href="view-items.html" class="active">Browse Items</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <div class="nav-right">
+            <span id="userGreeting" class="nav-user"></span>
+            <button id="logoutBtn" class="btn-logout">Log Out</button>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="browse-header">
+            <h1>Browse Items</h1>
+            <div class="filter-tabs">
+                <button class="tab-btn active" data-filter="all">All</button>
+                <button class="tab-btn" data-filter="lost">Lost</button>
+                <button class="tab-btn" data-filter="found">Found</button>
+            </div>
+        </div>
+        <div class="search-bar-row">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search by title or description...">
+            </div>
+            <select id="categoryFilter" class="category-select">
+                <option value="all">All Categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Documents">Documents</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Bags">Bags</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <p id="loadingMessage" class="loading-text">Loading items...</p>
+        <p id="emptyMessage" class="loading-text" style="display: none;">No items found.</p>
+
+        <div id="itemsGrid" class="items-grid"></div>
+    </main>
+    <div id="claimModal" class="modal-overlay">
+        <div class="modal-card">
+            <h2>Claim "<span id="claimItemTitle"></span>"</h2>
+            <p class="subtitle">Tell the reporter why you believe this is yours</p>
+            <p id="claimMessage" class="form-message"></p>
+            <textarea id="claimText" rows="4" placeholder="e.g., It has a small scratch on the back, and my student ID is inside..."></textarea>
+            <div class="modal-actions">
+                <button id="cancelClaimBtn" class="btn-secondary">Cancel</button>
+                <button id="submitClaimBtn" class="btn-primary">Submit Claim</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="view-items.js"></script>
+    
+</body>
+</html>

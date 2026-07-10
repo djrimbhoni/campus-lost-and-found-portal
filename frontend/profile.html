@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Campus Lost & Found Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔎 Lost & Found</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="report-lost.html">Report Lost</a></li>
+            <li><a href="report-found.html">Report Found</a></li>
+            <li><a href="view-items.html">Browse Items</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+        </ul>
+        <div class="nav-right">
+            <span id="userGreeting" class="nav-user"></span>
+            <button id="logoutBtn" class="btn-logout">Log Out</button>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar"></div>
+            <div>
+                <h1 id="profileName">—</h1>
+                <p id="profileEmail" class="subtitle">—</p>
+            </div>
+        </div>
+
+        <div class="profile-tabs">
+            <button class="ptab-btn active" data-ptab="myItems">My Reported Items</button>
+            <button class="ptab-btn" data-ptab="claimsReceived">Claims Received</button>
+        </div>
+
+        <div id="myItemsSection" class="ptab-section">
+            <p id="myItemsLoading" class="loading-text">Loading your items...</p>
+            <div id="myItemsGrid" class="items-grid"></div>
+        </div>
+
+        <div id="claimsReceivedSection" class="ptab-section" style="display: none;">
+            <p id="claimsLoading" class="loading-text">Loading claims...</p>
+            <div id="claimsList" class="claims-list"></div>
+        </div>
+    </main>
+
+    <script src="profile.js"></script>
+</body>
+</html>

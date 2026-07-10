@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item - Campus Lost & Found Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔎 Lost & Found</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="report-lost.html">Report Lost</a></li>
+            <li><a href="report-found.html" class="active">Report Found</a></li>
+            <li><a href="view-items.html">Browse Items</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <div class="nav-right">
+            <span id="userGreeting" class="nav-user"></span>
+            <button id="logoutBtn" class="btn-logout">Log Out</button>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="form-card">
+            <h1>Report a Found Item</h1>
+            <p class="subtitle">Help reunite this item with its owner</p>
+
+            <p id="message" class="form-message"></p>
+
+            <form id="reportFoundForm" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="title">Item Title</label>
+                    <input type="text" id="title" name="title" placeholder="e.g., Black Wallet, Blue Water Bottle" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Documents">Documents</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Bags">Bags</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Where and when did you find it? Any identifying details?"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="image">Photo (optional)</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn-primary">Submit Report</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="report-found.js"></script>
+</body>
+</html>

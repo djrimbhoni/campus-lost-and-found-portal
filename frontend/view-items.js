@@ -33,7 +33,7 @@ let currentSearchTerm = '';
 
 async function fetchItems() {
     try {
-        const response = await fetch('${API_BASE_URL}/items');
+        const response = await fetch(`${API_BASE_URL}/items`);
         const data = await response.json();
 
         if (response.ok) {
@@ -176,7 +176,7 @@ submitClaimBtn.addEventListener('click', async () => {
     if (!activeItemId) return;
 
     try {
-        const response = await fetch('${API_BASE_URL}/claim', {
+        const response = await fetch(`${API_BASE_URL}/claim`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

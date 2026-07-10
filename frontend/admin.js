@@ -44,7 +44,7 @@ async function loadAdminItems() {
     const container = document.getElementById('adminItemsTable');
 
     try {
-        const response = await fetch('${API_BASE_URL}/admin/items', {
+        const response = await fetch(`${API_BASE_URL}/admin/items`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const items = await response.json();
@@ -107,7 +107,7 @@ async function loadAdminUsers() {
     const container = document.getElementById('adminUsersTable');
 
     try {
-        const response = await fetch('${API_BASE_URL}/admin/users', {
+        const response = await fetch(`${API_BASE_URL}/admin/users`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const users = await response.json();

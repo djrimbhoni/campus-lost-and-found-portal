@@ -39,52 +39,12 @@ ptabButtons.forEach(btn => {
     });
 });
 
-// async function loadMyItems() {
-//     const loading = document.getElementById('myItemsLoading');
-//     const grid = document.getElementById('myItemsGrid');
-
-//     try {
-//         const response = await fetch('${API_BASE_URL}/my-items', {
-//             headers: { 'Authorization': `Bearer ${token}` }
-//         });
-//         const items = await response.json();
-
-//         loading.style.display = 'none';
-
-//         if (items.length === 0) {
-//             grid.innerHTML = '<p class="loading-text">You haven\'t reported any items yet.</p>';
-//             return;
-//         }
-
-//         grid.innerHTML = items.map(item => {
-//             const imageHtml = item.image_url
-//                 ? `<img src="${API_BASE_URL}/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
-//                 : `<div class="item-image-placeholder">📦</div>`;
-//             const badgeClass = item.type === 'lost' ? 'badge-lost' : 'badge-found';
-
-//             return `
-//                 <div class="item-card">
-//                     ${imageHtml}
-//                     <div class="item-body">
-//                         <span class="item-badge ${badgeClass}">${item.type}</span>
-//                         <div class="item-title">${item.title}</div>
-//                         <div class="item-category">${item.category}</div>
-//                         <div class="item-footer">Status: ${item.status}</div>
-//                     </div>
-//                 </div>
-//             `;
-//         }).join('');
-//     } catch (err) {
-//         loading.textContent = 'Could not load your items.';
-//     }
-// }
-
 async function loadMyItems() {
     const loading = document.getElementById('myItemsLoading');
     const grid = document.getElementById('myItemsGrid');
 
     try {
-        const response = await fetch('${API_BASE_URL}/my-items', {
+        const response = await fetch(`${API_BASE_URL}/my-items`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const items = await response.json();
@@ -154,7 +114,7 @@ async function loadClaimsReceived() {
     const list = document.getElementById('claimsList');
 
     try {
-        const response = await fetch('${API_BASE_URL}/my-claims-received', {
+        const response = await fetch(`${API_BASE_URL}/my-claims-received`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const claims = await response.json();

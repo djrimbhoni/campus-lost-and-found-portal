@@ -44,7 +44,7 @@ ptabButtons.forEach(btn => {
 //     const grid = document.getElementById('myItemsGrid');
 
 //     try {
-//         const response = await fetch('http://localhost:3000/my-items', {
+//         const response = await fetch('${API_BASE_URL}/my-items', {
 //             headers: { 'Authorization': `Bearer ${token}` }
 //         });
 //         const items = await response.json();
@@ -58,7 +58,7 @@ ptabButtons.forEach(btn => {
 
 //         grid.innerHTML = items.map(item => {
 //             const imageHtml = item.image_url
-//                 ? `<img src="http://localhost:3000/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
+//                 ? `<img src="${API_BASE_URL}/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
 //                 : `<div class="item-image-placeholder">📦</div>`;
 //             const badgeClass = item.type === 'lost' ? 'badge-lost' : 'badge-found';
 
@@ -84,7 +84,7 @@ async function loadMyItems() {
     const grid = document.getElementById('myItemsGrid');
 
     try {
-        const response = await fetch('http://localhost:3000/my-items', {
+        const response = await fetch('${API_BASE_URL}/my-items', {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const items = await response.json();
@@ -98,7 +98,7 @@ async function loadMyItems() {
 
         grid.innerHTML = items.map(item => {
             const imageHtml = item.image_url
-                ? `<img src="http://localhost:3000/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
+                ? `<img src="${API_BASE_URL}/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
                 : `<div class="item-image-placeholder">📦</div>`;
             const badgeClass = item.type === 'lost' ? 'badge-lost' : 'badge-found';
 
@@ -132,7 +132,7 @@ async function markAsReturned(itemId) {
     if (!confirm('Mark this item as returned?')) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/items/${itemId}/return`, {
+        const response = await fetch(`${API_BASE_URL}/items/${itemId}/return`, {
             method: 'PATCH',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -154,7 +154,7 @@ async function loadClaimsReceived() {
     const list = document.getElementById('claimsList');
 
     try {
-        const response = await fetch('http://localhost:3000/my-claims-received', {
+        const response = await fetch('${API_BASE_URL}/my-claims-received', {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const claims = await response.json();

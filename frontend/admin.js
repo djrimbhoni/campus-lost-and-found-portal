@@ -44,7 +44,7 @@ async function loadAdminItems() {
     const container = document.getElementById('adminItemsTable');
 
     try {
-        const response = await fetch('http://localhost:3000/admin/items', {
+        const response = await fetch('${API_BASE_URL}/admin/items', {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const items = await response.json();
@@ -86,7 +86,7 @@ async function deleteItem(itemId) {
     if (!confirm('Are you sure you want to delete this item?')) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/admin/items/${itemId}`, {
+        const response = await fetch(`${API_BASE_URL}/admin/items/${itemId}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -107,7 +107,7 @@ async function loadAdminUsers() {
     const container = document.getElementById('adminUsersTable');
 
     try {
-        const response = await fetch('http://localhost:3000/admin/users', {
+        const response = await fetch('${API_BASE_URL}/admin/users', {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const users = await response.json();

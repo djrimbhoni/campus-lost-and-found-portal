@@ -33,7 +33,7 @@ let currentSearchTerm = '';
 
 async function fetchItems() {
     try {
-        const response = await fetch('http://localhost:3000/items');
+        const response = await fetch('${API_BASE_URL}/items');
         const data = await response.json();
 
         if (response.ok) {
@@ -81,7 +81,7 @@ function renderItems() {
 
     itemsGrid.innerHTML = filteredItems.map(item => {
         const imageHtml = item.image_url
-            ? `<img src="http://localhost:3000/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
+            ? `<img src="${API_BASE_URL}/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
             : `<div class="item-image-placeholder">📦</div>`;
 
         const badgeClass = item.status === 'returned'
@@ -176,7 +176,7 @@ submitClaimBtn.addEventListener('click', async () => {
     if (!activeItemId) return;
 
     try {
-        const response = await fetch('http://localhost:3000/claim', {
+        const response = await fetch('${API_BASE_URL}/claim', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

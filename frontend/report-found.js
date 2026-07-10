@@ -37,7 +37,7 @@ form.addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/report-found', {
+        const response = await fetch('${API_BASE_URL}/report-found', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`

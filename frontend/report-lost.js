@@ -49,7 +49,7 @@ form.addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/report-lost', {
+        const response = await fetch('${API_BASE_URL}/report-lost', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`

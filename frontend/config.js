@@ -1,1 +1,1 @@
-const API_BASE_URL = 'https://campus-lost-and-found-api.onrender.com';
+const API_BASE_URL = 'https://jrim-campus-lost-and-found-api.onrender.com';

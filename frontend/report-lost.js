@@ -7,12 +7,7 @@ if (!token || !userJSON) {
 
 const user = JSON.parse(userJSON);
 document.getElementById('userGreeting').textContent = user.fullname;
-if (!token || !userJSON) {
-    window.location.href = 'login.html';
-}
 
-const user = JSON.parse(userJSON);
-document.getElementById('userGreeting').textContent = user.fullname;
 
 if (user.role === 'admin') {
     const adminLink = document.createElement('li');

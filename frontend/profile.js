@@ -58,7 +58,7 @@ async function loadMyItems() {
 
         grid.innerHTML = items.map(item => {
             const imageHtml = item.image_url
-                ? `<img src="${API_BASE_URL}/uploads/${item.image_url}" alt="${item.title}" class="item-image">`
+                ? `<img src="${item.image_url}" alt="${item.title}" class="item-image">`
                 : `<div class="item-image-placeholder">📦</div>`;
             const badgeClass = item.type === 'lost' ? 'badge-lost' : 'badge-found';
 

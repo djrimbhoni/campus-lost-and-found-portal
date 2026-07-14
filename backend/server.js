@@ -108,7 +108,7 @@ app.post('/login', (req, res) => {
 app.post('/report-lost', authMiddleware, upload.single('image'), (req, res) => {
     const { title, description, category } = req.body;
     const userId = req.user.id;
-    const imageUrl = req.file ? req.file.filename : null;
+    const imageUrl = req.file ? req.file.path : null;
 
     if (!title || !category) {
         return res.status(400).json({ error: 'Title and category are required.' });
@@ -128,7 +128,7 @@ app.post('/report-lost', authMiddleware, upload.single('image'), (req, res) => {
 app.post('/report-found', authMiddleware, upload.single('image'), (req, res) => {
     const { title, description, category } = req.body;
     const userId = req.user.id;
-    const imageUrl = req.file ? req.file.filename : null;
+    const imageUrl = req.file ? req.file.path : null;
 
     if (!title || !category) {
         return res.status(400).json({ error: 'Title and category are required.' });
